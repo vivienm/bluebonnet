@@ -2,6 +2,10 @@
 
 set -ouex pipefail
 
+echo "::group:: Install Python bindings for Nautilus"
+dnf -y install nautilus-python
+echo "::endgroup::"
+
 echo "::group:: Install Niri environment"
 dnf -y install \
     niri \
