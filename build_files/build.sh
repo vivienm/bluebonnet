@@ -6,6 +6,10 @@ echo "::group:: Install Python bindings for Nautilus"
 dnf -y install nautilus-python
 echo "::endgroup::"
 
+echo "::group:: Create Nix directory"
+mkdir -p /nix
+echo "::endgroup::"
+
 echo "::group:: Install Niri environment"
 dnf -y install \
     niri \
@@ -23,8 +27,4 @@ dnf -y install \
     waybar \
     wtype \
     xwayland-satellite
-echo "::endgroup::"
-
-echo "::group:: Create Nix directory"
-mkdir -p /nix
 echo "::endgroup::"
