@@ -28,3 +28,7 @@ dnf -y install \
     wtype \
     xwayland-satellite
 echo "::endgroup::"
+
+echo "::group:: Install gocryptfs"
+dnf -y install gocryptfs
+echo "::endgroup::"
