@@ -21,13 +21,13 @@ env:
 
 jobs:
   build_push:
-    name: Build and push image
+    name: Build and push image (${{ github.event.repository.name }}${{ matrix.image_suffix }}:${{ matrix.tag }})
     runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: false
       matrix:
-        image_suffix: ["" , "-nvidia"]
+        image_suffix: ["" , "-nvidia", "-dx", "-dx-nvidia"]
         tag: ["stable"]
 
     concurrency:
@@ -46,7 +46,7 @@ jobs:
           echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
           IMAGE_NAME="${{ github.event.repository.name }}${{ matrix.image_suffix }}"
           echo "IMAGE_NAME=${IMAGE_NAME,,}" >> ${GITHUB_ENV}
-          echo "BASE_IMAGE=ghcr.io/ublue-os/bluefin-dx${{ matrix.image_suffix }}:${{ matrix.tag }}" >> ${GITHUB_ENV}
+          echo "BASE_IMAGE=ghcr.io/ublue-os/bluefin${{ matrix.image_suffix }}:${{ matrix.tag }}" >> ${GITHUB_ENV}
 
       # These stage versions are pinned by https://github.com/renovatebot/renovate
       - name: Checkout

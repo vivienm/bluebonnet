@@ -89,21 +89,10 @@ sudoif command *args:
 build $target_image=image_name $tag=default_tag:
     #!/usr/bin/env bash
 
-    BUILD_ARGS=()
+    BUILD_ARGS=("--build-arg" "BASE_IMAGE=ghcr.io/ublue-os/${target_image/#bluebonnet/bluefin}:${tag}")
     if [[ -z "$(git status -s)" ]]; then
         BUILD_ARGS+=("--build-arg" "SHA_HEAD_SHORT=$(git rev-parse --short HEAD)")
     fi
-    case "${target_image}" in
-        "bluebonnet" )
-            BUILD_ARGS+=("--build-arg" "BASE_IMAGE=ghcr.io/ublue-os/bluefin-dx:${tag}")
-            ;;
-        "bluebonnet-nvidia" )
-            BUILD_ARGS+=("--build-arg" "BASE_IMAGE=ghcr.io/ublue-os/bluefin-dx-nvidia:${tag}")
-            ;;
-        * )
-            echo "Unknown target image: ${target_image}" >&2
-            exit 1
-    esac
 
     podman build \
         "${BUILD_ARGS[@]}" \

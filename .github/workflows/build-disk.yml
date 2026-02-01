@@ -29,12 +29,12 @@ env:
 
 jobs:
   build:
-    name: Build disk images
+    name: Build disk images (${{ github.event.repository.name }}${{ matrix.image_suffix }}:${{ matrix.tag }})
     runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     strategy:
       fail-fast: false
       matrix:
-        image_suffix: ["", "-nvidia"]
+        image_suffix: ["", "-nvidia", "-dx", "-dx-nvidia"]
         tag: ["stable"]
         disk-type: ["qcow2", "anaconda-iso"]
     concurrency:
