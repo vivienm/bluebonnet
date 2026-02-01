@@ -1,6 +1,6 @@
-# Bluebonnet
+# 🪻 Bluebonnet
 
-Bluebonnet is my personal bootc image based on **bluefin-dx**.
+Bluebonnet is my personal bootc image based on **bluefin**.
 
 ## Includes
 
