@@ -25,6 +25,7 @@ dnf -y install \
     swayidle \
     swaylock \
     waybar \
+    wayvnc \
     wtype \
     xwayland-satellite
 echo "::endgroup::"
