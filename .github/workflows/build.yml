@@ -27,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image_suffix: ["" , "-nvidia", "-dx", "-dx-nvidia"]
+        image_suffix: ["" , "-nvidia-open", "-dx", "-dx-nvidia-open"]
         tag: ["stable"]
 
     concurrency:
