@@ -14,6 +14,7 @@ echo "::group:: Install Niri environment"
 dnf -y install \
     niri \
     alacritty \
+    blueman \
     brightnessctl \
     fuzzel \
     gammastep-indicator \
