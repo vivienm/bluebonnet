@@ -58,3 +58,14 @@ EOF
     dnf -y install --enablerepo=code code
     echo "::endgroup::"
 fi
+
+echo "::group:: Install Monaspace Nerd Font"
+MONASPACE_VERSION="$(curl -fsSI -o /dev/null -w '%{redirect_url}' https://github.com/githubnext/monaspace/releases/latest | grep -oP '[^/]+$')"
+MONASPACE_URL="https://github.com/githubnext/monaspace/releases/download/${MONASPACE_VERSION}/monaspace-nerdfonts-${MONASPACE_VERSION}.zip"
+MONASPACE_TMP=$(mktemp -d)
+curl -fsSL -o "${MONASPACE_TMP}/monaspace-nerdfonts.zip" "${MONASPACE_URL}"
+mkdir -p /usr/share/fonts/monaspace-nerd
+unzip -j "${MONASPACE_TMP}/monaspace-nerdfonts.zip" "*.otf" -d /usr/share/fonts/monaspace-nerd/
+rm -rf "${MONASPACE_TMP}"
+fc-cache -f /usr/share/fonts/monaspace-nerd
+echo "::endgroup::"

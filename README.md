@@ -10,6 +10,7 @@ Bluebonnet is my personal bootc image based on **bluefin**.
 - Tesseract OCR
 - Encrypted filesystem support via `gocryptfs`
 - Visual Studio Code (on non-DX variants; already included in Bluefin DX)
+- [Monaspace](https://github.com/githubnext/monaspace) Nerd Font
 
 ## Install
 
