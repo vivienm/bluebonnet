@@ -9,6 +9,7 @@ Bluebonnet is my personal bootc image based on **bluefin**.
 - Nix compatibility
 - Tesseract OCR
 - Encrypted filesystem support via `gocryptfs`
+- Visual Studio Code (on non-DX variants; already included in Bluefin DX)
 
 ## Install
 
