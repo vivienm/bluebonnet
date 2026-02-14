@@ -32,6 +32,13 @@ dnf -y install \
     xwayland-satellite
 echo "::endgroup::"
 
+echo "::group:: Install Tesseract OCR"
+dnf -y install \
+    tesseract \
+    tesseract-langpack-fra \
+    tesseract-langpack-eng
+echo "::endgroup::"
+
 echo "::group:: Install gocryptfs"
 dnf -y install gocryptfs
 echo "::endgroup::"

@@ -2,10 +2,12 @@
 
 Bluebonnet is my personal bootc image based on **bluefin**.
 
-## Includes
+## Features
 
 - Niri-based Wayland desktop environment and related utilities
 - Nautilus Python bindings (`nautilus-python`)
+- Nix compatibility
+- Tesseract OCR
 - Encrypted filesystem support via `gocryptfs`
 
 ## Install
