@@ -69,3 +69,9 @@ unzip -j "${MONASPACE_TMP}/monaspace-nerdfonts.zip" "*.otf" -d /usr/share/fonts/
 rm -rf "${MONASPACE_TMP}"
 fc-cache -f /usr/share/fonts/monaspace-nerd
 echo "::endgroup::"
+
+echo "::group:: Install Sunshine"
+dnf -y copr enable lizardbyte/beta
+dnf -y install sunshine
+setcap cap_sys_admin+p "$(readlink -f "$(which sunshine)")"
+echo "::endgroup::"
