@@ -17,6 +17,6 @@ Bluebonnet is my personal bootc image based on **bluefin**.
 
 ```bash
 sudo bootc switch ghcr.io/vivienm/bluebonnet:stable
-# or ghcr.io/vivienm/bluebonnet-nvidia:stable
+# or ghcr.io/vivienm/bluebonnet-nvidia-open:stable
 sudo systemctl reboot
 ```
