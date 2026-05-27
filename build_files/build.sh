@@ -30,6 +30,7 @@ dnf -y install \
     wev \
     wtype \
     xwayland-satellite
+desktop-file-edit --add-not-show-in=GNOME /etc/xdg/autostart/blueman.desktop
 echo "::endgroup::"
 
 echo "::group:: Install Tesseract OCR"
