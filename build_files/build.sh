@@ -11,11 +11,15 @@ mkdir -p /nix
 echo "::endgroup::"
 
 echo "::group:: Install Niri environment"
+# swayosd (on-screen display for brightness/volume) is not in the Fedora repos,
+# so pull it from the upstream maintainer's COPR.
+dnf -y copr enable erikreider/swayosd
 dnf -y install \
     niri \
     alacritty \
     blueman \
     brightnessctl \
+    ddcutil \
     fuzzel \
     gammastep-indicator \
     gammastep \
@@ -25,11 +29,13 @@ dnf -y install \
     swaybg \
     swayidle \
     swaylock \
+    swayosd \
     waybar \
     wayvnc \
     wev \
     wtype \
     xwayland-satellite
+dnf -y copr disable erikreider/swayosd
 desktop-file-edit --add-not-show-in=GNOME /etc/xdg/autostart/blueman.desktop
 echo "::endgroup::"
 
